@@ -7,7 +7,7 @@ import DsIcon, { IconsType } from '@ds/components/global/icon';
 
 interface DsButtonProps extends TextStyle, ViewStyle {
     children: React.ReactNode;
-    variant: 'primary' | 'secondary';
+    variant: 'default' | 'primary' | 'secondary';
     size: 'small' | 'medium' | 'large';
     loading?: boolean;
     icon?: IconsType;
@@ -19,12 +19,12 @@ const DsButton: React.FC<DsButtonProps> = (props) => {
 
     const buttonStyles: ViewStyle = {
         borderRadius: 30,
-        padding: size === 'small' && 4 || size === 'medium' && 12 || size === 'large' && 30 || 16,
+        padding: size === 'small' && 4 || size === 'medium' && 12 || size === 'large' && 30 || 0,
         alignItems: 'center',
         justifyContent: 'center',
-        width: size === 'small' ? 120 : size === 'medium' ? 220 : 329,
-        height: size === 'small' ? 40 : size === 'medium' ? 52 : 92,
-        backgroundColor: variant === 'primary' ? 'blue' : variant === 'secondary' ? '#42C83C' : attr?.backgroundColor,
+        width: size === 'small' && 120 || size === 'medium' && 220 || size === 'large' && 329 || 'auto',
+        height: size === 'small' && 40 || size === 'medium' && 52 || size === 'large' && 92 || 'auto',
+        backgroundColor: variant === 'default' ? 'transparent' : variant === 'primary' ? 'blue' : variant === 'secondary' ? '#42C83C' : attr?.backgroundColor,
         ...attr as ViewStyle,
     };
 
@@ -68,8 +68,8 @@ const DsButton: React.FC<DsButtonProps> = (props) => {
 
 
     const textStyles: TextStyle = {
-        fontSize: attr && attr.fontSize ? attr.fontSize : textSize[size],
-        color: attr && attr.color ? attr.color : (variant === 'primary' ? 'red' : (variant === 'secondary' ? '#F6F6F6' : '#fff')),
+        fontSize: attr.fontSize ?? textSize[size],
+        color: attr.color ?? (variant === 'primary' ? 'red' : (variant === 'secondary' ? '#F6F6F6' : '#fff')),
         ...filterProps(attr),
     };
 
