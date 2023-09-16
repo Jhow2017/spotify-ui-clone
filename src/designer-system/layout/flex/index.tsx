@@ -1,18 +1,31 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { FlexStyle, View } from 'react-native';
 import ComponentMounter, { ComponentMounterType } from '@ds/core/component-mounter';
-import { FlexStyle } from 'react-native';
 
-interface DsFlexType extends FlexStyle, ComponentMounterType {}
+interface DsFlexType extends FlexStyle, ComponentMounterType {
+    gap?: number;
+}
 
 const DsFlex: React.FC<DsFlexType> = (props) => {
-    const { children, ...attr } = props;
+    const { children, gap, ...attr } = props;
+
+    const childrenWithGap = React.Children.map(children, (child, index) => {
+        if (index === 0) {
+            return child;
+        }
+        return (
+            <>
+                <View style={{ marginRight: gap ?? 0 }} />
+                {child}
+            </>
+        );
+    });
 
     return (
-        <ComponentMounter {...attr}>
-            {children}
+        <ComponentMounter style={{ flexDirection: 'row' }} {...attr}>
+            {childrenWithGap}
         </ComponentMounter>
     );
 };
-
 
 export default DsFlex;
