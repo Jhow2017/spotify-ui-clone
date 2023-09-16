@@ -42,6 +42,7 @@ const GetStarted = () => {
                     size='large'
                     marginTop={37}
                     fontWeight='700'
+                    lineHeight={22}
                     textTransform='capitalize'
                 >
                     Get started
