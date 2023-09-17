@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     TextInput,
     TextInputProps,
@@ -12,6 +12,7 @@ type InputTypes = "text" | "search" | "date" | "password" | "number";
 type DsInputProps = Omit<TextInputProps, "textAlign"> &
     TextStyle & {
         type: InputTypes;
+        TypeInput?: "flat" | "outlined";
     };
 
 const transformPlaceholder = (
@@ -47,26 +48,12 @@ const DsInput: React.FC<DsInputProps> = ({ type, ...props }) => {
         // Use appropriate keyboardType for password if needed
     }
 
-    const [transformedPlaceholder, setTransformedPlaceholder] = useState<
-        string | undefined
-    >(placeholder);
-
-    useEffect(() => {
-        if (placeholder && textTransform) {
-            setTransformedPlaceholder(
-                transformPlaceholder(placeholder, textTransform)
-            );
-        } else {
-            setTransformedPlaceholder(placeholder);
-        }
-    }, [placeholder, textTransform]);
-
     return (
         <TextInput
             {...(attr as TextInputProps)}
             placeholderTextColor={attr.placeholderTextColor || "#A7A7A7"}
             keyboardType={keyboardType}
-            placeholder={transformedPlaceholder}
+            placeholder={transformPlaceholder(placeholder, textTransform)}
             style={{
                 width: attr?.width ?? 334,
                 height: attr?.height ?? 80,
