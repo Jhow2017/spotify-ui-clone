@@ -1,4 +1,7 @@
 import { Platform, View } from "react-native";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 //components
 import { DsText } from "@ds/components/typography";
@@ -6,56 +9,38 @@ import { DsBox, DsFlex } from "@ds/layout";
 import DsIcon from "@ds/components/global/icon";
 import DsButton from "@ds/components/global/button";
 
-//images
+import DsInput from "@ds/components/form/input";
+import Header from "src/components/header";
+import LayoutPublic from "src/components/layout/layout-public";
 
-import DsInput from "@ds/components/form";
-import { useState } from "react";
+const SignInTypesSchema = z.object({
+    username: z.string().min(3),
+    password: z
+        .string()
+        .min(6, { message: "Password must be atleast 6 characters" }),
+});
+
+// extracting the type
+type SignInTypes = z.infer<typeof SignInTypesSchema>;
 
 //choose mode
 const SignIn = () => {
-    const [inputValue, setInputValue] = useState<string>("");
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<SignInTypes>({
+        resolver: zodResolver(SignInTypesSchema),
+        mode: "onBlur",
+    });
 
-    const handleValueChange = (value: string) => {
-        setInputValue(value);
+    const onSubmit: SubmitHandler<SignInTypes> = (data) => {
+        console.log(data);
     };
 
     return (
-        <DsBox
-            flex={1}
-            alignItems="center"
-            backgroundColor={"#1C1B1B"}
-            paddingHorizontal={42}
-        >
-            <DsFlex
-                justifyContent="space-between"
-                alignItems="center"
-                width={"100%"}
-                marginTop={Platform.OS === "ios" ? 56 : 42}
-            >
-                <DsIcon
-                    icon="arrow-left"
-                    size={24}
-                    width={32}
-                    height={32}
-                    color="#DDDDDD"
-                    backgroundColor={"#232222"}
-                    borderRadius={50}
-                    justifyContent="center"
-                    alignItems="center"
-                    position="absolute"
-                    left={0}
-                />
-
-                <DsIcon
-                    icon="spotify"
-                    size={116}
-                    color="#62CD5D"
-                    justifyContent="center"
-                    alignItems="center"
-                />
-
-                <View />
-            </DsFlex>
+        <LayoutPublic>
+            <Header />
 
             <DsFlex marginTop={80} flexDirection="column">
                 <DsText
@@ -70,18 +55,41 @@ const SignIn = () => {
                 </DsText>
 
                 <DsFlex flexDirection="column" gap={16} marginTop={38}>
-                    <DsInput
-                        type="text"
-                        value={inputValue}
-                        onChangeText={handleValueChange}
-                        placeholder="Enter username or email"
-                        textTransform="capitalize"
+                    <Controller
+                        control={control}
+                        name="username"
+                        render={({ field }) => (
+                            <DsInput
+                                type="text"
+                                size="medium"
+                                id="username"
+                                onChangeText={field.onChange}
+                                value={field.value}
+                                placeholder="Enter username or email"
+                                textTransform="capitalize"
+                                error={
+                                    errors.username && errors.username.message
+                                }
+                            />
+                        )}
                     />
-                    <DsInput
-                        type="text"
-                        value={inputValue}
-                        onChangeText={handleValueChange}
-                        placeholder="Password"
+
+                    <Controller
+                        control={control}
+                        name="password"
+                        render={({ field }) => (
+                            <DsInput
+                                size="medium"
+                                id="password"
+                                onChangeText={field.onChange}
+                                value={field.value}
+                                type="password"
+                                placeholder="Password"
+                                error={
+                                    errors.password && errors.password.message
+                                }
+                            />
+                        )}
                     />
                 </DsFlex>
 
@@ -103,11 +111,12 @@ const SignIn = () => {
                     lineHeight={22}
                     borderRadius={30}
                     marginTop={22}
+                    onPress={handleSubmit(onSubmit)}
                 >
                     Sign In
                 </DsButton>
             </DsFlex>
-        </DsBox>
+        </LayoutPublic>
     );
 };
 

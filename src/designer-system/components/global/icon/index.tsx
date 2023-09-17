@@ -96,8 +96,8 @@ const DsIcon: React.FC<DsIconType> = (props) => {
                         <Defs>
                             <ClipPath id="clip0_1_358">
                                 <Rect
-                                    width={size}
-                                    height={(size / 32) * 32}
+                                    width={"100%"}
+                                    height={"100%"}
                                     fill={color || "white"}
                                 />
                             </ClipPath>
