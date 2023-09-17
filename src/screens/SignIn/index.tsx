@@ -4,10 +4,11 @@ import { Keyboard, TouchableWithoutFeedback } from "react-native";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 //@Ds
-import { DsText } from "@ds/components/typography";
 import { DsFlex } from "@ds/layout";
-import DsButton from "@ds/components/global/button";
+import DsIcon from "@ds/components/global/icon";
 import DsInput from "@ds/components/form/input";
+import { DsText } from "@ds/components/typography";
+import DsButton from "@ds/components/global/button";
 
 //components
 import Header from "src/components/header";
@@ -46,7 +47,7 @@ const SignIn = () => {
                 flexGrow: 1,
             }}
         >
-            <LayoutPublic>
+            <LayoutPublic paddingBottom={74}>
                 <Header />
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <DsFlex marginTop={80} flexDirection="column">
@@ -59,6 +60,17 @@ const SignIn = () => {
                             textTransform="capitalize"
                         >
                             Sign in
+                        </DsText>
+
+                        <DsText
+                            color="#E1E1E1"
+                            fontSize={12}
+                            textAlign="center"
+                            textTransform="capitalize"
+                            marginTop={22}
+                        >
+                            If you need any support{" "}
+                            <DsText color={"#38B432"}>click here</DsText>
                         </DsText>
 
                         <DsFlex flexDirection="column" gap={16} marginTop={38}>
@@ -154,6 +166,27 @@ const SignIn = () => {
                         height={1}
                     />
                 </DsFlex>
+
+                <DsFlex
+                    justifyContent="center"
+                    alignItems="center"
+                    gap={60}
+                    marginTop={50}
+                >
+                    <DsIcon icon="google-logo" size={32} />
+                    <DsIcon icon="apple-logo" size={30} />
+                </DsFlex>
+                <DsText
+                    color="#DBDBDB"
+                    fontSize={14}
+                    textAlign="center"
+                    fontWeight="700"
+                    textTransform="capitalize"
+                    marginTop={22}
+                >
+                    not a member ?{" "}
+                    <DsText color={"#288CE9"}>register now</DsText>
+                </DsText>
             </LayoutPublic>
         </ScrollView>
     );
