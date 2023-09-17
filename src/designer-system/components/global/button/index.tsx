@@ -1,11 +1,11 @@
 import React from 'react';
-import { TouchableOpacity, ViewStyle, ActivityIndicator, TextStyle } from 'react-native';
+import { TouchableOpacity, TouchableOpacityProps, ViewStyle, ActivityIndicator, TextStyle } from 'react-native';
 
 //components
 import { DsText } from '@ds/components/typography';
 import DsIcon, { IconsType } from '@ds/components/global/icon';
 
-interface DsButtonProps extends TextStyle, ViewStyle {
+interface DsButtonProps extends TouchableOpacityProps, TextStyle, ViewStyle {
     children: React.ReactNode;
     variant: 'default' | 'primary' | 'secondary';
     size: 'small' | 'medium' | 'large';
