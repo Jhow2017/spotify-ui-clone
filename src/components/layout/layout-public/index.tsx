@@ -1,11 +1,8 @@
 //components
 import { DsBox } from "@ds/layout";
 import { DsBoxType } from "@ds/layout/box";
-import { FlexStyle } from "react-native";
 
-interface LayoutPublicProps extends DsBoxType {
-    children?: React.ReactNode;
-}
+interface LayoutPublicProps extends DsBoxType {}
 const LayoutPublic: React.FC<LayoutPublicProps> = (props) => {
     const { children, ...attr } = props;
     return (
