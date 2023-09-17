@@ -1,13 +1,15 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
-//components
+//@Ds
 import { DsText } from "@ds/components/typography";
 import { DsFlex } from "@ds/layout";
 import DsButton from "@ds/components/global/button";
-
 import DsInput from "@ds/components/form/input";
+
+//components
 import Header from "src/components/header";
 import LayoutPublic from "src/components/layout/layout-public";
 
@@ -38,81 +40,84 @@ const SignIn = () => {
     return (
         <LayoutPublic>
             <Header />
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <DsFlex marginTop={80} flexDirection="column">
+                    <DsText
+                        color="#F2F2F2"
+                        fontSize={30}
+                        lineHeight={35}
+                        fontWeight="700"
+                        textAlign="center"
+                        textTransform="capitalize"
+                    >
+                        Sign in
+                    </DsText>
 
-            <DsFlex marginTop={80} flexDirection="column">
-                <DsText
-                    color="#F2F2F2"
-                    fontSize={30}
-                    lineHeight={35}
-                    fontWeight="700"
-                    textAlign="center"
-                    textTransform="capitalize"
-                >
-                    Sign in
-                </DsText>
+                    <DsFlex flexDirection="column" gap={16} marginTop={38}>
+                        <Controller
+                            control={control}
+                            name="username"
+                            render={({ field }) => (
+                                <DsInput
+                                    type="text"
+                                    size="medium"
+                                    id="username"
+                                    onChangeText={field.onChange}
+                                    value={field.value}
+                                    placeholder="Enter username or email"
+                                    textTransform="capitalize"
+                                    error={
+                                        errors.username &&
+                                        errors.username.message
+                                    }
+                                />
+                            )}
+                        />
 
-                <DsFlex flexDirection="column" gap={16} marginTop={38}>
-                    <Controller
-                        control={control}
-                        name="username"
-                        render={({ field }) => (
-                            <DsInput
-                                type="text"
-                                size="medium"
-                                id="username"
-                                onChangeText={field.onChange}
-                                value={field.value}
-                                placeholder="Enter username or email"
-                                textTransform="capitalize"
-                                error={
-                                    errors.username && errors.username.message
-                                }
-                            />
-                        )}
-                    />
+                        <Controller
+                            control={control}
+                            name="password"
+                            render={({ field }) => (
+                                <DsInput
+                                    size="medium"
+                                    id="password"
+                                    onChangeText={field.onChange}
+                                    value={field.value}
+                                    type="password"
+                                    placeholder="Password"
+                                    error={
+                                        errors.password &&
+                                        errors.password.message
+                                    }
+                                />
+                            )}
+                        />
+                    </DsFlex>
 
-                    <Controller
-                        control={control}
-                        name="password"
-                        render={({ field }) => (
-                            <DsInput
-                                size="medium"
-                                id="password"
-                                onChangeText={field.onChange}
-                                value={field.value}
-                                type="password"
-                                placeholder="Password"
-                                error={
-                                    errors.password && errors.password.message
-                                }
-                            />
-                        )}
-                    />
+                    <DsText
+                        color="#A0A0A0"
+                        fontSize={17}
+                        lineHeight={25}
+                        fontWeight="400"
+                        textAlign="left"
+                        marginTop={21}
+                    >
+                        Recovery password
+                    </DsText>
+                    <DsButton
+                        variant="secondary"
+                        size="large"
+                        paddingHorizontal={36}
+                        fontWeight="700"
+                        lineHeight={22}
+                        borderRadius={30}
+                        marginTop={22}
+                        onPress={handleSubmit(onSubmit)}
+                    >
+                        Sign In
+                    </DsButton>
                 </DsFlex>
-
-                <DsText
-                    color="#A0A0A0"
-                    fontSize={17}
-                    lineHeight={25}
-                    fontWeight="400"
-                    textAlign="left"
-                    marginTop={21}
-                >
-                    Recovery password
-                </DsText>
-                <DsButton
-                    variant="secondary"
-                    size="large"
-                    paddingHorizontal={36}
-                    fontWeight="700"
-                    lineHeight={22}
-                    borderRadius={30}
-                    marginTop={22}
-                    onPress={handleSubmit(onSubmit)}
-                >
-                    Sign In
-                </DsButton>
-            </DsFlex>
+            </TouchableWithoutFeedback>
         </LayoutPublic>
     );
 };
