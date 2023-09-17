@@ -1,12 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import GetStarted from './src/screens/GetStarted';
+import { StatusBar } from "expo-status-bar";
+import ChooseMode from "src/screens/ChooseMode";
+import GetStarted from "src/screens/GetStarted";
+import Logon from "src/screens/Logon";
 
 export default function App() {
-  return (
-    <>
-      <GetStarted />
-      <StatusBar style="light" translucent />
-    </>
-  );
+    return (
+        <>
+            {/* <GetStarted /> */}
+            <Logon />
+            {/* <ChooseMode /> */}
+            <StatusBar style="light" translucent />
+        </>
+    );
 }
-
