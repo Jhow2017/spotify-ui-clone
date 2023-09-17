@@ -1,20 +1,21 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Keyboard, TouchableWithoutFeedback } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { ScrollView, Keyboard, TouchableWithoutFeedback } from "react-native";
 
 //@Ds
 import { DsFlex } from "@ds/layout";
 import DsIcon from "@ds/components/global/icon";
 import DsInput from "@ds/components/form/input";
+import DsLink from "@ds/components/global/link";
 import { DsText } from "@ds/components/typography";
 import DsButton from "@ds/components/global/button";
+import DsDivider from "@ds/components/global/divider";
 
 //components
 import Header from "src/components/header";
 import LayoutPublic from "src/components/layout/layout-public";
-import DsDivider from "@ds/components/global/divider";
-import { ScrollView } from "react-native";
 
 const SignInTypesSchema = z.object({
     username: z.string().min(3),
@@ -39,6 +40,14 @@ const SignIn = () => {
     const onSubmit: SubmitHandler<SignInTypes> = (data) => {
         console.log(data);
     };
+
+    // const navigation = useNavigation();
+
+    // const handleNavigate = () => {
+    //     // Alguma lógica antes de navegar
+    //     console.log("Navegando para a rota Detalhes");
+    //     navigation.navigate("Detalhes");
+    // };
 
     return (
         <ScrollView
@@ -65,12 +74,20 @@ const SignIn = () => {
                         <DsText
                             color="#E1E1E1"
                             fontSize={12}
-                            textAlign="center"
                             textTransform="capitalize"
                             marginTop={22}
+                            textAlign="center"
                         >
                             If you need any support{" "}
-                            <DsText color={"#38B432"}>click here</DsText>
+                            <DsLink
+                                color={"#38B432"}
+                                fontSize={12}
+                                textAlign="center"
+                                textTransform="capitalize"
+                                url="https://www.linkedin.com/in/jonathan-gama-2365a4187/"
+                            >
+                                click here
+                            </DsLink>
                         </DsText>
 
                         <DsFlex flexDirection="column" gap={16} marginTop={38}>
@@ -185,7 +202,15 @@ const SignIn = () => {
                     marginTop={22}
                 >
                     not a member ?{" "}
-                    <DsText color={"#288CE9"}>register now</DsText>
+                    <DsLink
+                        color={"#288CE9"}
+                        fontSize={14}
+                        fontWeight="700"
+                        textTransform="capitalize"
+                        url="https://www.linkedin.com/in/jonathan-gama-2365a4187/"
+                    >
+                        Register now
+                    </DsLink>
                 </DsText>
             </LayoutPublic>
         </ScrollView>
