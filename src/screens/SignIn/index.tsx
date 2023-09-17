@@ -1,12 +1,10 @@
-import { Platform, View } from "react-native";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 //components
 import { DsText } from "@ds/components/typography";
-import { DsBox, DsFlex } from "@ds/layout";
-import DsIcon from "@ds/components/global/icon";
+import { DsFlex } from "@ds/layout";
 import DsButton from "@ds/components/global/button";
 
 import DsInput from "@ds/components/form/input";
@@ -23,7 +21,6 @@ const SignInTypesSchema = z.object({
 // extracting the type
 type SignInTypes = z.infer<typeof SignInTypesSchema>;
 
-//choose mode
 const SignIn = () => {
     const {
         control,
