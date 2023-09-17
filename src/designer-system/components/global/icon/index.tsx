@@ -5,7 +5,6 @@ import {
     TouchableOpacityProps,
     Insets,
     TextStyle,
-    View,
 } from "react-native";
 import Svg, { G, Path, Rect, Defs, ClipPath } from "react-native-svg";
 
