@@ -7,7 +7,7 @@ import { transformPlaceholder } from "src/services/utils/transformPlaceholder";
 //types
 import { DsInputProps } from "./type";
 
-//components
+//@ds
 import { DsFlex } from "@ds/layout";
 import DsIcon from "@ds/components/global/icon";
 import ComponentMounter from "@ds/core/component-mounter";
@@ -19,13 +19,12 @@ const DsInput = forwardRef<TextInput, DsInputProps>(
 
         //states
         const [showPassword, setShowPassword] = useState<boolean>(false);
-
         return (
             <ComponentMounter position="relative">
                 <DsFlex position="relative">
                     <TextInput
-                        ref={ref}
                         {...(props as TextInputProps)}
+                        ref={ref}
                         placeholderTextColor={
                             attr.placeholderTextColor || "#6f6f6f"
                         }
