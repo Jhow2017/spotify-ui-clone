@@ -1,6 +1,8 @@
-import React from 'react';
-import { FlexStyle, View } from 'react-native';
-import ComponentMounter, { ComponentMounterType } from '@ds/core/component-mounter';
+import React from "react";
+import { View, ViewStyle, FlexStyle } from "react-native";
+import ComponentMounter, {
+    ComponentMounterType,
+} from "@ds/core/component-mounter";
 
 interface DsFlexType extends FlexStyle, ComponentMounterType {
     gap?: number;
@@ -9,21 +11,31 @@ interface DsFlexType extends FlexStyle, ComponentMounterType {
 const DsFlex: React.FC<DsFlexType> = (props) => {
     const { children, gap, ...attr } = props;
 
-    const childrenWithGap = React.Children.map(children, (child, index) => {
+    const modifiedChildren = React.Children.map(children, (child, index) => {
         if (index === 0) {
             return child;
         }
+
+        const marginStyle: ViewStyle = {};
+        if (gap) {
+            if (attr?.flexDirection === "column") {
+                marginStyle.marginTop = gap;
+            } else {
+                marginStyle.marginLeft = gap;
+            }
+        }
+
         return (
             <>
-                <View style={{ marginRight: gap ?? 0 }} />
+                <View style={marginStyle} />
                 {child}
             </>
         );
     });
 
     return (
-        <ComponentMounter style={{ flexDirection: 'row' }} {...attr}>
-            {childrenWithGap}
+        <ComponentMounter style={{ flexDirection: "row", ...attr }} {...attr}>
+            {modifiedChildren}
         </ComponentMounter>
     );
 };
