@@ -13,7 +13,7 @@ import Loading from "src/components/loading";
 import ChooseModeScreen from "../screens/ChooseMode";
 import LoginScreen from "../screens/Login";
 import RegisterScreen from "../screens/Register";
-import HomeScreen from "../screens/Home";
+import HomeScreen from "../screens/tab-home/Home";
 import GetStartedScreen from "../screens/GetStarted";
 import SignInScreen from "../screens/SignIn";
 
