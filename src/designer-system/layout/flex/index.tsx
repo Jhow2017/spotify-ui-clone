@@ -4,7 +4,7 @@ import ComponentMounter, {
     ComponentMounterType,
 } from "@ds/core/component-mounter";
 
-interface DsFlexType extends FlexStyle, ComponentMounterType {
+export interface DsFlexType extends FlexStyle, ComponentMounterType {
     gap?: number;
 }
 

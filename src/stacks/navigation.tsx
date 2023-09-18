@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 
 //utils
@@ -13,12 +12,11 @@ import Loading from "src/components/loading";
 import ChooseModeScreen from "../screens/ChooseMode";
 import LoginScreen from "../screens/Login";
 import RegisterScreen from "../screens/Register";
-import HomeScreen from "../screens/tab-home/Home";
 import GetStartedScreen from "../screens/GetStarted";
 import SignInScreen from "../screens/SignIn";
+import { AppTabsStack } from "src/components/tab-bar/BottomMenu";
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
 const ChooseModeStack = () => (
     <Stack.Navigator
@@ -39,15 +37,6 @@ const LogonStack = () => (
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="SignIn" component={SignInScreen} />
     </Stack.Navigator>
-);
-
-const AppTabsStack = () => (
-    <Tab.Navigator
-        initialRouteName="Home"
-        screenOptions={{ headerShown: false }}
-    >
-        <Tab.Screen name="Home" component={HomeScreen} />
-    </Tab.Navigator>
 );
 
 const Navigation = () => {

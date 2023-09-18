@@ -8,6 +8,9 @@ export declare global {
             SignIn: undefined;
             Register: undefined;
             Home: undefined;
+            Search: undefined;
+            Favorite: undefined;
+            Profile: undefined;
             AppTabsStack: { screen: string };
             LogonStack: { screen: string };
         }

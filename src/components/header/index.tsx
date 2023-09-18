@@ -4,16 +4,18 @@ import { Platform, View } from "react-native";
 import { DsFlex } from "@ds/layout";
 import DsIcon from "@ds/components/global/icon";
 import { useNavigation } from "@react-navigation/native";
+import { DsFlexType } from "@ds/layout/flex";
 
 //choose mode
-const Header = () => {
+const Header: React.FC<DsFlexType> = (props) => {
     const navigation = useNavigation();
     return (
         <DsFlex
+            {...props}
             justifyContent="space-between"
             alignItems="center"
             width={"100%"}
-            marginTop={Platform.OS === "ios" ? 56 : 42}
+            marginTop={Platform.OS === "ios" ? props?.marginTop ?? 56 : 42}
         >
             <DsIcon
                 icon="arrow-left"
