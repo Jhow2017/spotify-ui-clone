@@ -7,10 +7,13 @@ import {
     Platform,
 } from "react-native";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import BottomMenuItem from "@components/dashboard/bottom-menu-item";
 
-import { IconsType } from "@ds/components/global/icon";
+//@Ds
 import { DsBox } from "@ds/layout";
+
+//components
+import BottomMenuItem from "@components/dashboard/bottom-menu-item";
+import { IconsType } from "@ds/components/global/icon";
 
 export const TabBar = ({
     state,
