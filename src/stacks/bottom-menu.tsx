@@ -11,7 +11,7 @@ import {
     SearchScreen,
     ProfileScreen,
     FavoriteScreen,
-} from "@screens/TabHome/index";
+} from "@screens/dashboard";
 
 export const AppTabsStack = () => {
     const Tab = createBottomTabNavigator();
