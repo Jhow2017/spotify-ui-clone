@@ -8,7 +8,7 @@ import {
     Platform,
 } from "react-native";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { BottomMenuItem } from "./BottomMenuItem";
+import { BottomMenuItem } from "../bottom-menu-item";
 import { IconsType } from "@ds/components/global/icon";
 
 export const TabBar = ({

@@ -10,7 +10,7 @@ import Loading from "src/components/loading";
 
 //screens
 
-import { AppTabsStack } from "src/components/tab-bar/BottomMenu";
+import { AppTabsStack } from "src/stacks/bottom-menu";
 import {
     ChooseModeScreen,
     GetStartedScreen,
