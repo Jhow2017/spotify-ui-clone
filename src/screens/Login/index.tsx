@@ -1,4 +1,5 @@
 import { Platform } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 //components
 import { DsText } from "@ds/components/typography";
@@ -13,7 +14,9 @@ import Bille from "@images/image2.png";
 import Union1 from "@images/union-1.png";
 
 //choose mode
-const Logon = () => {
+const LoginScreen = () => {
+    const navigation = useNavigation();
+
     return (
         <DsBox
             flex={1}
@@ -93,6 +96,7 @@ const Logon = () => {
                             fontWeight="700"
                             lineHeight={22}
                             borderRadius={30}
+                            onPress={() => navigation.navigate("Register")}
                         >
                             Register
                         </DsButton>
@@ -102,6 +106,7 @@ const Logon = () => {
                             width={"auto"}
                             fontWeight="700"
                             lineHeight={22}
+                            onPress={() => navigation.navigate("SignIn")}
                         >
                             Sign in
                         </DsButton>
@@ -133,4 +138,4 @@ const Logon = () => {
     );
 };
 
-export default Logon;
+export default LoginScreen;

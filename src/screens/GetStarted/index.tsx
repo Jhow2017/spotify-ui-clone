@@ -11,7 +11,7 @@ import DsButton from "@ds/components/global/button";
 //images
 import Bille from "@images/bille.png";
 
-const GetStarted = () => {
+const GetStartedScreen = () => {
     const navigation = useNavigation();
 
     const OpenHandleGetstarted = () => {
@@ -69,4 +69,4 @@ const GetStarted = () => {
     );
 };
 
-export default GetStarted;
+export default GetStartedScreen;

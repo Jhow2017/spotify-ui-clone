@@ -28,7 +28,7 @@ const RegisterTypesSchema = z.object({
 // extracting the type
 type SignInTypes = z.infer<typeof RegisterTypesSchema>;
 
-const Register = () => {
+const RegisterScreen = () => {
     const {
         control,
         handleSubmit,
@@ -227,4 +227,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default RegisterScreen;

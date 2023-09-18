@@ -11,12 +11,8 @@ import DsButton from "@ds/components/global/button";
 import DsImage from "@ds/components/global/image";
 import Bille from "@images/image1.png";
 
-const ChooseMode = () => {
+const ChooseModeScreen = () => {
     const navigation = useNavigation();
-
-    const HandleContinue = () => {
-        navigation.navigate("SignIn");
-    };
     return (
         <DsBox flex={1} alignItems="center" backgroundColor={"#494949"}>
             <DsImage position="absolute" source={Bille} />
@@ -74,7 +70,11 @@ const ChooseMode = () => {
                     size="large"
                     marginTop={37}
                     fontWeight="600"
-                    onPress={HandleContinue}
+                    onPress={() =>
+                        navigation.navigate("LogonStack", {
+                            screen: "Login",
+                        })
+                    }
                 >
                     Continue
                 </DsButton>
@@ -83,4 +83,4 @@ const ChooseMode = () => {
     );
 };
 
-export default ChooseMode;
+export default ChooseModeScreen;

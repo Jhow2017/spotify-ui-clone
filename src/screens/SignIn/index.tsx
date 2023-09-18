@@ -27,7 +27,8 @@ const SignInTypesSchema = z.object({
 // extracting the type
 type SignInTypes = z.infer<typeof SignInTypesSchema>;
 
-const SignIn = () => {
+const SignInScreen = () => {
+    const navigation = useNavigation();
     const {
         control,
         handleSubmit,
@@ -40,14 +41,6 @@ const SignIn = () => {
     const onSubmit: SubmitHandler<SignInTypes> = (data) => {
         console.log(data);
     };
-
-    // const navigation = useNavigation();
-
-    // const handleNavigate = () => {
-    //     // Alguma lógica antes de navegar
-    //     console.log("Navegando para a rota Detalhes");
-    //     navigation.navigate("Detalhes");
-    // };
 
     return (
         <ScrollView
@@ -149,9 +142,13 @@ const SignIn = () => {
                             lineHeight={22}
                             borderRadius={30}
                             marginTop={22}
-                            onPress={handleSubmit(onSubmit)}
+                            onPress={() =>
+                                navigation.navigate("AppTabsStack", {
+                                    screen: "Home",
+                                })
+                            }
                         >
-                            Sign In
+                            Entrar
                         </DsButton>
                     </DsFlex>
                 </TouchableWithoutFeedback>
@@ -217,4 +214,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default SignInScreen;
