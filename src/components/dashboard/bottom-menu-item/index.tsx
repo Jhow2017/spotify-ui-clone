@@ -6,10 +6,7 @@ type BottomMenuItemProps = {
     iconName: IconsType;
     isCurrent?: boolean;
 };
-export const BottomMenuItem = ({
-    iconName,
-    isCurrent,
-}: BottomMenuItemProps) => {
+const BottomMenuItem = ({ iconName, isCurrent }: BottomMenuItemProps) => {
     return (
         <View
             style={{
@@ -26,3 +23,5 @@ export const BottomMenuItem = ({
         </View>
     );
 };
+
+export default BottomMenuItem;

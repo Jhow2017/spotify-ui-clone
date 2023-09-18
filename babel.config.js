@@ -21,7 +21,7 @@ module.exports = function (api) {
                         "@ds": "./src/designer-system",
                         "@images": "./src/assets",
                         "@screens": "./src/screens/",
-                        "@components": "./src/components",
+                        "@components": "./src/components/",
                     },
                 },
             ],

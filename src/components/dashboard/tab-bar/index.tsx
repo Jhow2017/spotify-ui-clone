@@ -4,12 +4,13 @@ import {
     TouchableOpacity,
     Dimensions,
     Animated,
-    StyleSheet,
     Platform,
 } from "react-native";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { BottomMenuItem } from "../bottom-menu-item";
+import BottomMenuItem from "@components/dashboard/bottom-menu-item";
+
 import { IconsType } from "@ds/components/global/icon";
+import { DsBox } from "@ds/layout";
 
 export const TabBar = ({
     state,
@@ -20,7 +21,7 @@ export const TabBar = ({
     const totalWidth = Dimensions.get("window").width;
     const tabWidth = totalWidth / state.routes.length;
 
-    const sliderWidth = tabWidth - 65; // Adjusted slider width
+    const sliderWidth = tabWidth - 65;
 
     const animateSlider = (index: number) => {
         Animated.spring(translateValue, {
@@ -35,17 +36,37 @@ export const TabBar = ({
     }, [state.index]);
 
     return (
-        <View style={[style.tabContainer, { width: totalWidth }]}>
+        <DsBox
+            height={Platform.OS === "ios" ? 90 : 73}
+            backgroundColor={"#343434"}
+            position={"absolute"}
+            bottom={Platform.OS === "ios" ? -7 : 0}
+            style={[
+                {
+                    shadowOffset: {
+                        width: 0,
+                        height: -1,
+                    },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 4.0,
+                    width: totalWidth,
+                    elevation: 10,
+                },
+            ]}
+        >
             <View style={{ flexDirection: "row" }}>
                 <Animated.View
-                    style={[
-                        style.slider,
-                        {
-                            transform: [{ translateX: translateValue }],
-                            width: sliderWidth, // Use the adjusted slider width
-                            left: (tabWidth - sliderWidth) / 65, // Center the slider around the icon
-                        },
-                    ]}
+                    style={{
+                        transform: [{ translateX: translateValue }],
+                        width: sliderWidth,
+                        left: (tabWidth - sliderWidth) / 65,
+                        height: 5,
+                        position: "absolute",
+                        top: 0,
+                        backgroundColor: "#42C83C",
+                        borderBottomRightRadius: 20,
+                        borderBottomLeftRadius: 20,
+                    }}
                 />
 
                 {state.routes.map((route, index) => {
@@ -109,31 +130,6 @@ export const TabBar = ({
                     );
                 })}
             </View>
-        </View>
+        </DsBox>
     );
 };
-
-const style = StyleSheet.create({
-    tabContainer: {
-        height: Platform.OS === "ios" ? 90 : 73,
-        shadowOffset: {
-            width: 0,
-            height: -1,
-        },
-        shadowOpacity: 0.1,
-        shadowRadius: 4.0,
-        backgroundColor: "#343434",
-        elevation: 10,
-        position: "absolute",
-        bottom: Platform.OS === "ios" ? -7 : 0,
-    },
-    slider: {
-        height: 5,
-        position: "absolute",
-        top: 0,
-        left: 10,
-        backgroundColor: "#42C83C",
-        borderBottomRightRadius: 20,
-        borderBottomLeftRadius: 20,
-    },
-});
