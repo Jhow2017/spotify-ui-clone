@@ -1,5 +1,4 @@
-import DsBox from './box';
-import DsFlex from './flex';
-import DsLink from './link';
+import DsBox from "./box";
+import DsFlex from "./flex";
 
-export { DsBox, DsFlex, DsLink };
+export { DsBox, DsFlex };

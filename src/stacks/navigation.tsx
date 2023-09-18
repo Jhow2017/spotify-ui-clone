@@ -9,12 +9,15 @@ import { simulateLoading } from "src/services/utils/simulateLoading";
 import Loading from "src/components/loading";
 
 //screens
-import ChooseModeScreen from "../screens/ChooseMode";
-import LoginScreen from "../screens/Login";
-import RegisterScreen from "../screens/Register";
-import GetStartedScreen from "../screens/GetStarted";
-import SignInScreen from "../screens/SignIn";
+
 import { AppTabsStack } from "src/components/tab-bar/BottomMenu";
+import {
+    ChooseModeScreen,
+    GetStartedScreen,
+    SignInScreen,
+    RegisterScreen,
+    LoginScreen,
+} from "@screens/index";
 
 const Stack = createStackNavigator();
 

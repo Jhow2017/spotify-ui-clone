@@ -6,10 +6,12 @@ import {
 } from "@react-navigation/bottom-tabs";
 
 import { TabBar } from "./TabBar";
-import HomeScreen from "src/screens/TabHome/Home";
-import SearchScreen from "src/screens/TabHome/Search";
-import ProfileScreen from "src/screens/TabHome/Profile";
-import FavoriteScreen from "src/screens/TabHome/Favorite";
+import {
+    HomeScreen,
+    SearchScreen,
+    ProfileScreen,
+    FavoriteScreen,
+} from "@screens/TabHome/index";
 
 export const AppTabsStack = () => {
     const Tab = createBottomTabNavigator();
