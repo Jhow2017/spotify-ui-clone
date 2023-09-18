@@ -3,9 +3,11 @@ import { Platform, View } from "react-native";
 //components
 import { DsFlex } from "@ds/layout";
 import DsIcon from "@ds/components/global/icon";
+import { useNavigation } from "@react-navigation/native";
 
 //choose mode
 const Header = () => {
+    const navigation = useNavigation();
     return (
         <DsFlex
             justifyContent="space-between"
@@ -25,6 +27,7 @@ const Header = () => {
                 alignItems="center"
                 position="absolute"
                 left={0}
+                onPress={() => navigation.goBack()}
             />
 
             <DsIcon

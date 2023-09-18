@@ -29,6 +29,7 @@ const RegisterTypesSchema = z.object({
 type SignInTypes = z.infer<typeof RegisterTypesSchema>;
 
 const RegisterScreen = () => {
+    const navigation = useNavigation();
     const {
         control,
         handleSubmit,

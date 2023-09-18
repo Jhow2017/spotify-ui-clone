@@ -50,6 +50,7 @@ const LoginScreen = () => {
                     justifyContent="center"
                     alignItems="center"
                     marginTop={Platform.OS === "ios" ? 56 : 42}
+                    onPress={() => navigation.goBack()}
                 />
             </DsBox>
             <DsBox marginTop={112}>
