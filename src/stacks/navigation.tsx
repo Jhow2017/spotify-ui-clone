@@ -1,18 +1,21 @@
-// Navigation.tsx
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 
-// Importe as telas corretamente
+//utils
+import { simulateLoading } from "src/services/utils/simulateLoading";
+
+//components
+import Loading from "src/components/loading";
+
+//screens
 import ChooseModeScreen from "../screens/ChooseMode";
 import LoginScreen from "../screens/Login";
 import RegisterScreen from "../screens/Register";
 import HomeScreen from "../screens/Home";
 import GetStartedScreen from "../screens/GetStarted";
 import SignInScreen from "../screens/SignIn";
-import { simulateLoading } from "src/services/utils/simulateLoading";
-import Loading from "src/components/loading";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -39,12 +42,12 @@ const LogonStack = () => (
 );
 
 const AppTabsStack = () => (
-    <Stack.Navigator
+    <Tab.Navigator
         initialRouteName="Home"
         screenOptions={{ headerShown: false }}
     >
-        <Stack.Screen name="Home" component={HomeScreen} />
-    </Stack.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+    </Tab.Navigator>
 );
 
 const Navigation = () => {
