@@ -1,23 +1,30 @@
-import { Platform, TouchableOpacity } from "react-native";
+import { Platform } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-//components
-import { DsText } from "@ds/components/typography";
+//@Ds
 import { DsBox, DsFlex } from "@ds/layout";
-import DsImage from "@ds/components/global/image";
 import DsIcon from "@ds/components/global/icon";
+import DsImage from "@ds/components/global/image";
+import { DsText } from "@ds/components/typography";
+import DsButton from "@ds/components/global/button";
 
 //images
 import Bille from "@images/bille.png";
-import DsButton from "@ds/components/global/button";
 
 const GetStarted = () => {
+    const navigation = useNavigation();
+
+    const OpenHandleGetstarted = () => {
+        navigation.navigate("ChooseMode");
+    };
     return (
         <DsBox flex={1} alignItems="center" backgroundColor={"#0d0c0c"}>
             <DsImage position="absolute" source={Bille} />
             <DsIcon
                 icon="spotify"
-                marginTop={Platform.OS === "ios" ? 57 : 37}
+                marginTop={Platform.OS === "ios" ? 65 : 42}
                 size={196}
+                color="#62CD5D"
             />
 
             <DsFlex
@@ -53,6 +60,7 @@ const GetStarted = () => {
                     fontWeight="700"
                     lineHeight={22}
                     textTransform="capitalize"
+                    onPress={OpenHandleGetstarted}
                 >
                     Get started
                 </DsButton>

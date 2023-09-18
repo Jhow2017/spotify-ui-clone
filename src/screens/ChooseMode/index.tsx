@@ -1,4 +1,5 @@
 import { Platform } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 //components
 import { DsText } from "@ds/components/typography";
@@ -11,13 +12,19 @@ import DsImage from "@ds/components/global/image";
 import Bille from "@images/image1.png";
 
 const ChooseMode = () => {
+    const navigation = useNavigation();
+
+    const HandleContinue = () => {
+        navigation.navigate("SignIn");
+    };
     return (
         <DsBox flex={1} alignItems="center" backgroundColor={"#494949"}>
             <DsImage position="absolute" source={Bille} />
             <DsIcon
                 icon="spotify"
-                marginTop={Platform.OS === "ios" ? 57 : 37}
+                marginTop={Platform.OS === "ios" ? 65 : 40}
                 size={196}
+                color="#62CD5D"
             />
 
             <DsFlex
@@ -67,6 +74,7 @@ const ChooseMode = () => {
                     size="large"
                     marginTop={37}
                     fontWeight="600"
+                    onPress={HandleContinue}
                 >
                     Continue
                 </DsButton>

@@ -49,7 +49,7 @@ const DsInput = forwardRef<TextInput, DsInputProps>(
                     />
                     {type === "password" && (
                         <DsIcon
-                            icon={showPassword ? "eye-hide" : "moon"}
+                            icon={showPassword ? "moon" : "eye-hide"}
                             position="absolute"
                             size={26}
                             right={30}

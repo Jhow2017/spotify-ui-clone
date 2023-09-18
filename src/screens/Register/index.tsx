@@ -18,7 +18,8 @@ import Header from "src/components/header";
 import LayoutPublic from "src/components/layout/layout-public";
 
 const RegisterTypesSchema = z.object({
-    username: z.string().min(3),
+    fullName: z.string().min(3),
+    email: z.string().email({ message: "Invalid email address" }),
     password: z
         .string()
         .min(6, { message: "Password must be atleast 6 characters" }),
@@ -59,7 +60,7 @@ const Register = () => {
             <LayoutPublic paddingBottom={74}>
                 <Header />
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                    <DsFlex marginTop={80} flexDirection="column">
+                    <DsFlex marginTop={47} flexDirection="column">
                         <DsText
                             color="#F2F2F2"
                             fontSize={30}
@@ -68,7 +69,7 @@ const Register = () => {
                             textAlign="center"
                             textTransform="capitalize"
                         >
-                            Sign in
+                            Register
                         </DsText>
 
                         <DsText
@@ -90,22 +91,41 @@ const Register = () => {
                             </DsLink>
                         </DsText>
 
-                        <DsFlex flexDirection="column" gap={16} marginTop={38}>
+                        <DsFlex flexDirection="column" gap={16} marginTop={26}>
                             <Controller
                                 control={control}
-                                name="username"
+                                name="fullName"
                                 render={({ field }) => (
                                     <DsInput
                                         type="text"
                                         size="medium"
-                                        id="username"
+                                        id="fullName"
                                         onChangeText={field.onChange}
                                         value={field.value}
-                                        placeholder="Enter username or email"
+                                        placeholder="full name"
                                         textTransform="capitalize"
                                         error={
-                                            errors.username &&
-                                            errors.username.message
+                                            errors.fullName &&
+                                            errors.fullName.message
+                                        }
+                                    />
+                                )}
+                            />
+
+                            <Controller
+                                control={control}
+                                name="email"
+                                render={({ field }) => (
+                                    <DsInput
+                                        type="text"
+                                        size="medium"
+                                        id="email"
+                                        onChangeText={field.onChange}
+                                        value={field.value}
+                                        placeholder="Enter email"
+                                        textTransform="capitalize"
+                                        error={
+                                            errors.email && errors.email.message
                                         }
                                     />
                                 )}
@@ -131,16 +151,6 @@ const Register = () => {
                             />
                         </DsFlex>
 
-                        <DsText
-                            color="#A0A0A0"
-                            fontSize={17}
-                            lineHeight={25}
-                            fontWeight="400"
-                            textAlign="left"
-                            marginTop={21}
-                        >
-                            Recovery password
-                        </DsText>
                         <DsButton
                             variant="secondary"
                             size="large"
