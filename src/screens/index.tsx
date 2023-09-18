@@ -1,8 +1,8 @@
-import ChooseModeScreen from "./ChooseMode";
-import GetStartedScreen from "./GetStarted";
-import LoginScreen from "./Login";
-import RegisterScreen from "./Register";
-import SignInScreen from "./SignIn";
+import ChooseModeScreen from "./splash/choose-mode";
+import GetStartedScreen from "./splash/get-started";
+import LoginScreen from "./splash/login";
+import RegisterScreen from "./auth/register";
+import SignInScreen from "./auth/signIn";
 
 export {
     ChooseModeScreen,
