@@ -7,7 +7,10 @@ import { useNavigation } from "@react-navigation/native";
 import { DsFlexType } from "@ds/layout/flex";
 
 //choose mode
-const Header: React.FC<DsFlexType> = (props) => {
+interface HeaderProps extends DsFlexType {
+    sizeLogo?: number;
+}
+const Header: React.FC<HeaderProps> = (props) => {
     const navigation = useNavigation();
     return (
         <DsFlex
@@ -34,7 +37,7 @@ const Header: React.FC<DsFlexType> = (props) => {
 
             <DsIcon
                 icon="spotify"
-                size={116}
+                size={props?.sizeLogo || 116}
                 color="#62CD5D"
                 justifyContent="center"
                 alignItems="center"
