@@ -18,6 +18,7 @@ const HomeScreen = () => {
     return (
         <ScrollView
             scrollEnabled
+            showsVerticalScrollIndicator={false}
             contentContainerStyle={{
                 flexGrow: 1,
             }}
