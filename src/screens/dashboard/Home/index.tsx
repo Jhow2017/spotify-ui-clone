@@ -10,7 +10,7 @@ import Header from "@components/header";
 import LayoutPublic from "@components/layout/layout-public";
 
 //images
-import WomanNewAlbum from "@images/woman-new-album2.png";
+import WomanNewAlbum from "@images/dashboard/woman-new-album2.png";
 
 const HomeScreen = () => {
     return (

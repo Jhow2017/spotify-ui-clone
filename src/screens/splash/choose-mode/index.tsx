@@ -9,7 +9,7 @@ import DsButton from "@ds/components/global/button";
 
 //images
 import DsImage from "@ds/components/global/image";
-import BillieEilishGreenHair from "@images/billie-eilish-green-hair.png";
+import BillieEilishGreenHair from "@images/splash/billie-eilish-green-hair.png";
 
 const ChooseModeScreen = () => {
     const navigation = useNavigation();

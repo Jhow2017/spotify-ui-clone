@@ -9,7 +9,7 @@ import { DsText } from "@ds/components/typography";
 import DsButton from "@ds/components/global/button";
 
 //images
-import BillieEilishGlasses from "@images/billie-eilish-glasses.png";
+import BillieEilishGlasses from "@images/splash/billie-eilish-glasses.png";
 
 const GetStartedScreen = () => {
     const navigation = useNavigation();

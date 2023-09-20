@@ -10,7 +10,7 @@ import DsImage from "@ds/components/global/image";
 
 //images
 import Union from "@images/union-00.png";
-import Bille3 from "@images/billie-03.png";
+import Bille3 from "@images/splash/billie-03.png";
 import Union1 from "@images/union-01.png";
 
 //choose mode
