@@ -61,7 +61,7 @@ const NewFlatList = () => {
                         >
                             <DsFlex gap={24} alignItems="center">
                                 <DsIcon
-                                    icon="moon"
+                                    icon="player"
                                     size={24}
                                     backgroundColor={"#2C2C2C"}
                                     height={42}
