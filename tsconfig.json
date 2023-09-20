@@ -5,7 +5,7 @@
         "baseUrl": "./",
         "paths": {
             "@ds/*": ["src/designer-system/*"],
-            "@images/*": ["src/assets"],
+            "@images/*": ["src/assets/*"],
             "@screens/*": ["src/screens/*"],
             "@components/*": ["src/components/*"]
         },

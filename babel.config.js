@@ -3,6 +3,7 @@ module.exports = function (api) {
     return {
         presets: ["babel-preset-expo"],
         plugins: [
+            "react-native-reanimated/plugin",
             [
                 "module-resolver",
                 {
@@ -19,7 +20,7 @@ module.exports = function (api) {
                     ],
                     alias: {
                         "@ds": "./src/designer-system",
-                        "@images": "./src/assets",
+                        "@images": "./src/assets/",
                         "@screens": "./src/screens/",
                         "@components": "./src/components/",
                     },
