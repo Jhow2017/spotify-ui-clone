@@ -1,18 +1,20 @@
+import { useState } from "react";
 import { ScrollView } from "react-native";
 
 //@Ds
-import { DsBox, DsFlex } from "@ds/layout";
-import { DsText } from "@ds/components/typography";
-import { DsImage } from "@ds/components/global";
+import { DsBox } from "@ds/layout";
 
 //components
 import Header from "@components/header";
 import LayoutPublic from "@components/layout/layout-public";
+import DsScrollTab from "@components/shared/tab-scroll/nidex";
 
 //images
-import WomanNewAlbum from "@images/dashboard/woman-new-album2.png";
+import NewFlatList from "@components/dashboard/tabs-scroll-bar/new";
+import BannerNewAlbum from "@components/dashboard/banner";
 
 const HomeScreen = () => {
+    const [activeTab, setActiveTab] = useState(0);
     return (
         <ScrollView
             scrollEnabled
@@ -20,65 +22,26 @@ const HomeScreen = () => {
                 flexGrow: 1,
             }}
         >
-            <LayoutPublic>
-                <Header marginTop={30} sizeLogo={150} />
-                <DsBox
-                    backgroundColor={"#42C83C"}
-                    width={"100%"}
-                    height={118}
-                    borderRadius={30}
-                    marginTop={38}
-                    position="relative"
-                    padding={24}
-                    flexDirection="row"
-                    alignItems="center"
-                >
-                    <DsFlex flexDirection="column" gap={4}>
-                        <DsText
-                            fontFamily={"Inter_500Medium"}
-                            fontSize={14}
-                            textTransform={"capitalize"}
-                            color={"#FBFBFB"}
-                        >
-                            New album
-                        </DsText>
-                        <DsText
-                            color="#FBFBFB"
-                            fontFamily="Inter_700Bold"
-                            fontSize={19}
-                            lineHeight={26}
-                            width={147}
-                            textTransform="capitalize"
-                        >
-                            Happier Than Ever
-                        </DsText>
-                        <DsText
-                            color="#F2F2F2"
-                            fontSize={13}
-                            fontFamily="Inter_500Medium"
-                            textTransform="capitalize"
-                        >
-                            Billie Eilish
-                        </DsText>
-                    </DsFlex>
-                    <DsImage
-                        source={WomanNewAlbum}
-                        resizeMode="cover"
-                        width={325}
-                        height={200}
-                        position="absolute"
-                        right={5}
-                        bottom={0}
-                    />
-                    <DsImage
-                        source={WomanNewAlbum}
-                        resizeMode="cover"
-                        width={325}
-                        height={200}
-                        position="absolute"
-                        right={5}
-                        bottom={0}
-                    />
+            <LayoutPublic paddingHorizontal={0}>
+                <Header marginTop={30} sizeLogo={150} paddingHorizontal={24} />
+                <DsBox paddingHorizontal={24} width={"100%"}>
+                    <BannerNewAlbum />
+                </DsBox>
+                <DsBox marginTop={42} flex={1}>
+                    <DsScrollTab
+                        tabs={["New", "Video", "Artists", "Podcast"]}
+                        onTabChange={setActiveTab}
+                        contentContainerStyle={{
+                            paddingHorizontal: 24,
+                        }}
+                    >
+                        <DsBox marginTop={32}>
+                            {activeTab === 0 && <NewFlatList />}
+                            {activeTab === 1 && <NewFlatList />}
+                            {activeTab === 2 && <NewFlatList />}
+                            {activeTab === 3 && <NewFlatList />}
+                        </DsBox>
+                    </DsScrollTab>
                 </DsBox>
             </LayoutPublic>
         </ScrollView>

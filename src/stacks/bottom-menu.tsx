@@ -5,7 +5,7 @@ import {
     BottomTabBarProps,
 } from "@react-navigation/bottom-tabs";
 
-import { TabBar } from "../components/dashboard/tab-bar";
+import { TabBar } from "../components/dashboard/bottom-tab-bar";
 import {
     HomeScreen,
     SearchScreen,

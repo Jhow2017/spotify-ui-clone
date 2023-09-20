@@ -8,10 +8,10 @@ const LayoutPublic: React.FC<LayoutPublicProps> = (props) => {
     return (
         <DsBox
             {...attr}
-            flex={attr?.flex || 1}
-            alignItems={attr.alignItems || "center"}
-            backgroundColor={attr.backgroundColor || "#1C1B1B"}
-            paddingHorizontal={attr.paddingHorizontal || 42}
+            flex={attr?.flex ?? 1}
+            alignItems={attr.alignItems ?? "center"}
+            backgroundColor={attr.backgroundColor ?? "#1C1B1B"}
+            paddingHorizontal={attr?.paddingHorizontal ?? 24}
         >
             {children}
         </DsBox>
