@@ -9,9 +9,9 @@ import DsButton from "@ds/components/global/button";
 import DsImage from "@ds/components/global/image";
 
 //images
-import Union from "@images/union.png";
-import Bille from "@images/image2.png";
-import Union1 from "@images/union-1.png";
+import Union from "@images/union-00.png";
+import Bille3 from "@images/billie-03.png";
+import Union1 from "@images/union-01.png";
 
 //choose mode
 const LoginScreen = () => {
@@ -118,7 +118,7 @@ const LoginScreen = () => {
             <DsImage
                 zIndex={-1}
                 position="absolute"
-                source={Bille}
+                source={Bille3}
                 width={Platform.OS === "ios" ? 365 : 290}
                 height={Platform.OS === "ios" ? 433 : 333}
                 left={0}

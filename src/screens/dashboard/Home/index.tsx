@@ -10,7 +10,7 @@ import Header from "@components/header";
 import LayoutPublic from "@components/layout/layout-public";
 
 //images
-import WomanNewAlbum from "@images/woman-new-album.png";
+import WomanNewAlbum from "@images/woman-new-album2.png";
 
 const HomeScreen = () => {
     return (
@@ -63,12 +63,21 @@ const HomeScreen = () => {
                     </DsFlex>
                     <DsImage
                         source={WomanNewAlbum}
-                        resizeMode="contain"
+                        resizeMode="cover"
                         width={325}
-                        height={184}
+                        height={200}
                         position="absolute"
-                        right={0}
-                        bottom={-1}
+                        right={5}
+                        bottom={0}
+                    />
+                    <DsImage
+                        source={WomanNewAlbum}
+                        resizeMode="cover"
+                        width={325}
+                        height={200}
+                        position="absolute"
+                        right={5}
+                        bottom={0}
                     />
                 </DsBox>
             </LayoutPublic>

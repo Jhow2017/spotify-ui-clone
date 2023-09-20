@@ -9,13 +9,13 @@ import DsButton from "@ds/components/global/button";
 
 //images
 import DsImage from "@ds/components/global/image";
-import Bille from "@images/image1.png";
+import BillieEilishGreenHair from "@images/billie-eilish-green-hair.png";
 
 const ChooseModeScreen = () => {
     const navigation = useNavigation();
     return (
         <DsBox flex={1} alignItems="center" backgroundColor={"#494949"}>
-            <DsImage position="absolute" source={Bille} />
+            <DsImage position="absolute" source={BillieEilishGreenHair} />
             <DsIcon
                 icon="spotify"
                 marginTop={Platform.OS === "ios" ? 65 : 40}

@@ -9,7 +9,7 @@ import { DsText } from "@ds/components/typography";
 import DsButton from "@ds/components/global/button";
 
 //images
-import Bille from "@images/bille.png";
+import BillieEilishGlasses from "@images/billie-eilish-glasses.png";
 
 const GetStartedScreen = () => {
     const navigation = useNavigation();
@@ -19,7 +19,7 @@ const GetStartedScreen = () => {
     };
     return (
         <DsBox flex={1} alignItems="center" backgroundColor={"#0d0c0c"}>
-            <DsImage position="absolute" source={Bille} />
+            <DsImage position="absolute" source={BillieEilishGlasses} />
             <DsIcon
                 icon="spotify"
                 marginTop={Platform.OS === "ios" ? 65 : 42}
