@@ -26,12 +26,7 @@ const NewFlatList = () => {
     return (
         <DsBox>
             <ListMusic />
-            <DsBox
-                flex={1}
-                marginTop={37}
-                marginBottom={100}
-                paddingHorizontal={24}
-            >
+            <DsBox marginTop={32} marginBottom={100} paddingHorizontal={24}>
                 <DsFlex justifyContent="space-between">
                     <DsText
                         color="#DBDBDB"

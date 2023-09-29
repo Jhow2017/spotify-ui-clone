@@ -6,7 +6,7 @@ import { DsBox } from "@ds/layout";
 
 //components
 import Header from "@components/header";
-import LayoutPublic from "@components/layout/layout-public";
+import LayoutPublic from "@components/layout/public";
 import DsScrollTab from "@components/shared/tab-scroll/nidex";
 
 //images

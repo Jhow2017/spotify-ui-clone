@@ -5,7 +5,7 @@ import { DsFlex } from "@ds/layout";
 
 //components
 import Header from "src/components/header";
-import LayoutPublic from "src/components/layout/layout-public";
+import LayoutPublic from "@components/layout/public";
 import { DsText } from "@ds/components/typography";
 
 const ProfileScreen = () => {

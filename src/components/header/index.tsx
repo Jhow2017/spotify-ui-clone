@@ -2,23 +2,32 @@ import { Platform, View } from "react-native";
 
 //components
 import { DsFlex } from "@ds/layout";
-import DsIcon from "@ds/components/global/icon";
+import DsIcon, { IconsType } from "@ds/components/global/icon";
 import { useNavigation } from "@react-navigation/native";
 import { DsFlexType } from "@ds/layout/flex";
 
 //choose mode
 interface HeaderProps extends DsFlexType {
     sizeLogo?: number;
+    icon?: IconsType;
+    marginTop?: number;
 }
 const Header: React.FC<HeaderProps> = (props) => {
+    const { marginTop, sizeLogo, icon, ...attr } = props;
+
     const navigation = useNavigation();
     return (
         <DsFlex
-            {...props}
-            justifyContent="space-between"
-            alignItems="center"
-            width={"100%"}
-            marginTop={Platform.OS === "ios" ? props?.marginTop ?? 56 : 42}
+            style={[
+                attr?.style,
+                {
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    width: "100%",
+                    marginTop: Platform.OS === "ios" ? marginTop ?? 56 : 42,
+                },
+            ]}
+            {...attr}
         >
             <DsIcon
                 icon="arrow-left"

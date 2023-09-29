@@ -11,6 +11,7 @@ export declare global {
             Search: undefined;
             Favorite: undefined;
             Profile: undefined;
+            NowPlaying: undefined;
             AppTabsStack: { screen: string };
             LogonStack: { screen: string };
         }

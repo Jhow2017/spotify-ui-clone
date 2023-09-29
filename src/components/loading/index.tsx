@@ -1,6 +1,6 @@
 //components
 import DsIcon from "@ds/components/global/icon";
-import LayoutPublic from "src/components/layout/layout-public";
+import LayoutPublic from "@components/layout/public";
 
 const Loading = () => {
     return (

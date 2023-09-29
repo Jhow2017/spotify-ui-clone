@@ -15,7 +15,7 @@ import DsDivider from "@ds/components/global/divider";
 
 //components
 import Header from "src/components/header";
-import LayoutPublic from "src/components/layout/layout-public";
+import LayoutPublic from "@components/layout/public";
 
 const RegisterTypesSchema = z.object({
     fullName: z.string().min(3),
